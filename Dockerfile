@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.9.19-slim
 RUN pip install streamlit
 RUN mkdir /abhilashrepo
 COPY . .
