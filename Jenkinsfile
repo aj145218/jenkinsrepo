@@ -11,12 +11,12 @@ pipeline{
                 }
 
         }
-        stage("Cleanup Stage"){
+        /*stage("Cleanup Stage"){
             steps{
                 sh 'docker rm -f $(docker ps -aq)'
             }
 
-        }
+        }*/
         stage("Build Docker image"){
             steps{
                 sh 'docker build -t myimage .'
