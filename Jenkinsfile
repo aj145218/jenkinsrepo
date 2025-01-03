@@ -11,20 +11,19 @@ pipeline{
                 }
 
         }
-        stage("Cleanup Stage"){
+        /*stage('Cleanup Stage'){
             steps{
                 sh 'docker rm -f $(docker ps -aq)'
             }
 
-        }
-        stage("Build Docker image"){
+        }*/
+        stage('Build Docker image'){
             steps{
-                sh 'docker rmi -f myimage'
                 sh 'docker build -t myimage .'
             }
 
         }
-        stage('Build and Push Image') {
+        stage('Add tag and Push Image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', 
                 usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
